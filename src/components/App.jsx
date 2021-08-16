@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import MusicTable from './MusicTable';
 
 
 class App extends Component {
@@ -22,12 +23,13 @@ class App extends Component {
         });
     }
 
+
     render() {
         return (
             <div>
-                <h1>Welcome Music Lover</h1>
-                <h1>{this.state.songs}</h1>
+                 < MusicTable songs ={this.state.songs}/>
             </div>
+
         );
 
     }

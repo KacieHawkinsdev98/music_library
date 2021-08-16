@@ -1,13 +1,15 @@
 import React from 'react';
 import './MusicTable.css'
 
-//display data (song title, album, artist, genre and release date)
-
-MusicTable = (props) => {
+const MusicTable = (props) => {
     return (
         <div>
-        <h1>Welcome Music Lover </h1>
-
+            <h1>Welcome Music Lover</h1>
+            <table>
+            <ul>
+                {props.songs.map((song, index) => <li key={index}>{song.title}</li>)}
+            </ul>
+            </table>
         </div>
     )
 }
