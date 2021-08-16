@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import CreateSong from './CreateSong/CreateSong';
 import MusicTable from './MusicTable';
 
 
@@ -23,24 +24,26 @@ class App extends Component {
         });
     }
 
-    deleteSong(id) {
-        axios.delete(`http://127.0.0.1:8000/music/${id}/`)
-        window.location.reload()
+    deleteRow = (id) => {
+        axios.delete('http://127.0.0.1:8000/music/${id}/')
+        .then(() => this.setState({ status: 'Delete Complete'}))
+        window.location.reload();
     }
-    // async deleteSongs() {
-    //     let response = await axios.delete('http://127.0.0.1:8000/music/')
-    //     console.log(response)
-    //     this.setState({
-    //         songs: response.data
-    //     })
-    // }
 
-
+    songCreator = (newSong) => {
+        this.state.songs.push(newSong);
+        axios.post('http://127.0.0.1:8000/music/', newSong)
+        .then(response => this.setState=({
+            newSong: response.data
+        }));
+        window.location.reload();
+    }
 
     render() {
         return (
             <div>
-                 < MusicTable songs ={this.state.songs}/>
+                 <MusicTable songs ={this.state.songs}/>
+                 <CreateSong createNewSong={this.songCreator.bind(this)} />
             </div>
 
         );
