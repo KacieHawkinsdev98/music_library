@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import MusicTable from './MusicTable';
 
-
 class App extends Component {
     state = {
         songs: []
