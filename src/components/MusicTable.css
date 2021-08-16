@@ -9,7 +9,10 @@
         padding: 4px;
         text-align: left;
     }
-    
+
+.header {
+    margin-left: 0.5%;
+}
 .music-table__title {
     background-color: aqua;
 }
