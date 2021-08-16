@@ -1,16 +1,15 @@
 .music-table {
-    border: 1px solid black;
-    border-collapse: collapse;
-    margin:25px 0;
-    font-size: 0.9em;
-    min-width: 400px;
-    border-radius: 5px 5px 0 0;
-    margin-left: .5%;
-}
-
-.header {
-    margin-left: 0.5%;
-}
+ 
+        border-collapse: collapse;
+        margin:25px 0;
+        font-size: 0.9em;
+        min-width: 400px;
+        border-radius: 5px 5px 0 0;
+        border: 1px solid black;
+        padding: 4px;
+        text-align: left;
+    }
+    
 .music-table__title {
     background-color: aqua;
 }
