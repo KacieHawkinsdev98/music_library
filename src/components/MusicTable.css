@@ -1,7 +1,24 @@
 .music-table {
+    border: 1px solid black;
     border-collapse: collapse;
     margin:25px 0;
     font-size: 0.9em;
     min-width: 400px;
     border-radius: 5px 5px 0 0;
+}
+
+.music-table__title {
+    background-color: aqua;
+}
+
+.music-table__artist {
+    background-color: yellow;
+}
+
+.music-table__album {
+    background-color: orange;
+}
+
+.music-table__release_date {
+    background-color: blue;
 }
