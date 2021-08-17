@@ -4,7 +4,7 @@ import './MusicTable.css'
 const MusicTable = (props) => {
     return (
         <div>
-            <h1>Welcome Music Lover</h1>
+            <h1 className="header">Welcome Music Lover</h1>
             <table className="music-table">
                 <tr>
                     <th>title</th>

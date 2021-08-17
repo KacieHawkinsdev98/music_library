@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import './SongForm.css'   
 
-class CreateSong extends Component {
+class SongForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,17 +27,17 @@ class CreateSong extends Component {
         return ( 
             <form>
                 <lable>Title</lable>
-                <input name="title" onChange={this.handleChange} value={this.state.title} />
+                <input name="title" onChange={this.handleChange} value={this.state.title} placeholder="Title" />
                 <lable>Album</lable>
-                <input name="album" onChange={this.handleChange} value={this.state.album} />
+                <input name="album" onChange={this.handleChange} value={this.state.album} placeholder="Album" />
                 <lable>Artist</lable>
-                <input name="artist" onChange={this.handleChange} value={this.state.artist} />
+                <input name="artist" onChange={this.handleChange} value={this.state.artist} placeholder="Artist" />
                 <lable>Release Date</lable>
-                <input name="release_date" onChange={this.handleChange} value={this.state.release_date} />
+                <input name="release_date" onChange={this.handleChange} value={this.state.release_date} placeholder="yyyy-mm-dd" />
                 <button onClick={this.handleSubmit}>Submit</button>                       
             </form>
          );
     }
 }
  
-export default CreateSong;
+export default SongForm;
