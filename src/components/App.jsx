@@ -8,20 +8,29 @@ import SongForm from './SongForm/SongForm';
 
 
 class App extends Component {
-    state = {
-        songs: []
+    constructor(props){
+        super(props);
+        this.state = {
+            songs: [
+                {
+                    title: '',
+                    album: '',
+                    artist: '',
+                    release_date: '',
+                }
+            ]
+        }
     }
 
     componentDidMount() {
-        this.getSongs();
+        this.getSong();
 
 
     }
 
-    async getSongs() {
+    async getSong() {
         try {
             let response = await axios.get('http://127.0.0.1:8000/music/');
-            console.log(response)
             this.setState({
                 songs: response.data
             });
@@ -32,11 +41,11 @@ class App extends Component {
     }
 
 
-
-    filterResults = (field, searchWord) => {
-        console.log(field, searchWord)
-        let results = this.state.songs.filterResults(function (event) {
-            if (event[field] == searchWord) {
+    filterResults = (field, searchTerm) => {
+        console.log(field)
+        console.log(searchTerm)
+        let results = this.state.songs.filter(function (el) {
+            if (el[field] == searchTerm) {
                 return true
             }
         })
@@ -45,9 +54,9 @@ class App extends Component {
         })
     }
 
-        deleteRow = (id) => {
+        deleteRow = async(id) => {
             axios.delete(`http://127.0.0.1:8000/music/${id}/`)
-                .then(() => this.setState({ status: 'Delete Complete' }))
+            .then(() => this.setState({ status: 'Delete Complete' }))
             window.location.reload();
         }
     
@@ -64,8 +73,8 @@ class App extends Component {
     render() {
         return (
             <div>
-                <SearchBar />
-                <MusicTable songs={this.state.songs} filter={this.filterResults} songs={this.state.songs} delete={this.deleteRow} />
+                <SearchBar filter={this.filterResults} songs={this.state.songs} filterSong={this.filterSong}/>
+                <MusicTable songs={this.state.songs}  deleteRow={this.deleteRow} />
                 <SongForm createNewSong={this.songCreator.bind(this)} />
 
 
