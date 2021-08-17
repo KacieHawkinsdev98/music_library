@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import SongForm from './SongForm/SongForm';
+import SearchBar from './SearchBar/SearchBar';
 import MusicTable from './MusicTable';
+import SongForm from './SongForm/SongForm';
+
+
 
 
 class App extends Component {
@@ -16,18 +19,38 @@ class App extends Component {
     }
 
     async getSongs() {
-        let response = await axios.get('http://127.0.0.1:8000/music/');
-        console.log(response)
-        this.setState({
-            songs: response.data
-
-        });
+        try{
+            let response = await axios.get('http://127.0.0.1:8000/music/');
+            console.log(response)
+            this.setState({
+                songs: response.data
+            });
+        }
+        catch(except){
+            alert('Not Valid')
+        }
     }
 
-    deleteRow = (id) => {
-        axios.delete('http://127.0.0.1:8000/music/${id}/')
-        .then(() => this.setState({ status: 'Delete Complete'}))
-        window.location.reload();
+    deleteRow = async(id) => {
+        try{
+            await axios.delete('http://127.0.0.1:8000/music/${id}/')
+            this.getSongs()
+        }
+        catch(event){
+            console.log(event)
+        }
+    }
+
+    filterResults = (field, searchWord) =>{
+        console.log(field, searchWord)
+        let results = this.state.songs.filterResults(function(event){
+            if(event[field] == searchWord){
+                return true
+            }
+        })
+        this.setState({
+            songs: results
+        })
     }
 
     songCreator = (newSong) => {
@@ -38,18 +61,16 @@ class App extends Component {
         }));
         window.location.reload();
     }
-
+    
     render() {
         return (
             <div>
-                 <MusicTable songs ={this.state.songs}/>
-                 <SongForm createNewSong={this.songCreator.bind(this)} />
+                <SearchBar />
+                <MusicTable songs ={this.state.songs} filter={this.filterResults} songs={this.state.songs} />
+                <SongForm createNewSong={this.songCreator.bind(this)} />
             </div>
-
         );
-
     }
-
 }
 
 export default App
