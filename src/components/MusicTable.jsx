@@ -20,7 +20,7 @@ const MusicTable = (props) => {
                         <td className="music-table__album">{song.album}</td>
                         <td className="music-table__song_release_date">{song.release_date}</td>
                         <td>
-                        <button onClick={() => props.delete(song.id)}>Delete</button>
+                        <button onClick={() => props.deleteRow(song.id)}>Delete</button>
                         </td>
                     </tr>)}
 
