@@ -6,7 +6,7 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            searchWord:"",
+            searchTerm:"",
             field: "",
         
          }
@@ -20,11 +20,13 @@ class SearchBar extends Component {
 
     handleSubmit=(event) => {
         event.preventDefault()
-        this.props.filter(this.state.field, this.state.searchWord)
+        this.props.filter(this.state.field, this.state.searchTerm)
     }
     render() { 
-        return ( 
+        return (
+            <div>
             <form className="container" onSubmit={this.handleSubmit}>
+
                 <select name="field" onChange={this.onChange}>
                     <option selected value="">Search</option>
                     <option value="title">Title</option>
@@ -32,10 +34,12 @@ class SearchBar extends Component {
                     <option value="artist">Artist</option>
                     <option value="release_date">Release Date</option>
                 </select>
-                <input onChange={this.onChange} name="searchWord"/>
+
+                <input onChange={this.onChange} name="searchTerm"></input>
                 <button type="submit">Submit</button>
             </form>
-         );
+            </div>
+        );
     }
 }
  
