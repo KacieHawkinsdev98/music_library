@@ -41,6 +41,7 @@ class App extends Component {
         }
     }
 
+<<<<<<< HEAD
     filterResults = (field, searchWord) =>{
         console.log(field, searchWord)
         let results = this.state.songs.filterResults(function(event){
@@ -51,6 +52,12 @@ class App extends Component {
         this.setState({
             songs: results
         })
+=======
+    deleteRow = (id) => {
+        axios.delete(`http://127.0.0.1:8000/music/${id}/`)
+        .then(() => this.setState({ status: 'Delete Complete'}))
+        window.location.reload();
+>>>>>>> c0bd3f8d8f05923f9c53b9918a864c4aa81c31ae
     }
 
     songCreator = (newSong) => {
@@ -65,9 +72,14 @@ class App extends Component {
     render() {
         return (
             <div>
+<<<<<<< HEAD
                 <SearchBar />
                 <MusicTable songs ={this.state.songs} filter={this.filterResults} songs={this.state.songs} />
                 <SongForm createNewSong={this.songCreator.bind(this)} />
+=======
+                 <MusicTable songs ={this.state.songs} delete={this.deleteRow}/>
+                 <SongForm createNewSong={this.songCreator.bind(this)} />
+>>>>>>> c0bd3f8d8f05923f9c53b9918a864c4aa81c31ae
             </div>
         );
     }
