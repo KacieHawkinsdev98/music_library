@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import CreateSong from './CreateSong/CreateSong';
+import SongForm from './SongForm/SongForm';
 import MusicTable from './MusicTable';
 
 
@@ -43,7 +43,7 @@ class App extends Component {
         return (
             <div>
                  <MusicTable songs ={this.state.songs}/>
-                 <CreateSong createNewSong={this.songCreator.bind(this)} />
+                 <SongForm createNewSong={this.songCreator.bind(this)} />
             </div>
 
         );
