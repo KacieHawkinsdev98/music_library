@@ -43,7 +43,7 @@ class App extends Component {
         return (
             <div>
                  <MusicTable songs ={this.state.songs} delete={this.deleteRow}/>
-                 <CreateSong createNewSong={this.songCreator.bind(this)} />
+                 <SongForm createNewSong={this.songCreator.bind(this)} />
             </div>
 
         );
