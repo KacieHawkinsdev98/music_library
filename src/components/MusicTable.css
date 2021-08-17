@@ -11,20 +11,52 @@
     }
 
 .header {
-    margin-left: 0.5%;
+    text-align: center; 
 }
 .music-table__title {
     background-color: aqua;
+    border-collapse: collapse;
+    margin:25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid black;
+    padding: 7px;
+    text-align: left;
 }
 
 .music-table__artist {
     background-color: yellow;
+    border-collapse: collapse;
+    margin:25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid black;
+    padding: 4px;
+    text-align: left;
 }
 
 .music-table__album {
     background-color: orange;
+    border-collapse: collapse;
+    margin:25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid black;
+    padding: 4px;
+    text-align: left;
 }
 
 .music-table__release_date {
     background-color: blue;
+    border-collapse: collapse;
+    margin:25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid black;
+    padding: 4px;
+    text-align: left;
 }
