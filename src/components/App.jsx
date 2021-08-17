@@ -25,7 +25,7 @@ class App extends Component {
     }
 
     deleteRow = (id) => {
-        axios.delete('http://127.0.0.1:8000/music/${id}/')
+        axios.delete(`http://127.0.0.1:8000/music/${id}/`)
         .then(() => this.setState({ status: 'Delete Complete'}))
         window.location.reload();
     }
@@ -42,7 +42,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                 <MusicTable songs ={this.state.songs}/>
+                 <MusicTable songs ={this.state.songs} delete={this.deleteRow}/>
                  <CreateSong createNewSong={this.songCreator.bind(this)} />
             </div>
 
